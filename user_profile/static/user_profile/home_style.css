@@ -1,0 +1,93 @@
+@font-face {
+    src: url("lato-fonts/Lato-Regular.woff2");
+    src: url("lato-fonts/Lato-Regular.woff");
+    src: url("lato-fonts/Lato-Regular.eot");
+    src: url("lato-fonts/Lato-Regular.ttf");
+    font-family: 'lato';
+}
+
+.header{
+    width: 100%;
+    height:5rem;
+    border-bottom: 2px solid #efefef;
+    padding-left: 3rem;
+    box-sizing: border-box;
+}
+
+.icons{
+    float: right;
+    width: 10rem;
+}
+.icons .icon{
+    height: 24px;
+    width: 24px;
+    margin-left: 1rem;
+    float: left;
+}
+
+.icons .explore{
+    background-image: url("dd822c.png");
+    background-position: -571px -585px;
+}
+
+.icons .likes{
+    background-image: url("dd822c.png");
+    background-position: -675px -585px;
+}
+
+.icons .timeline{
+    background-image: url("dd822c.png");
+    background-position: -623px -585px;
+}
+
+.logo{
+    float: left;
+    background-image: url("dd822c.png");
+    background-position: -504px -176px;
+    height: 35px;
+    width: 176px;
+    margin-top: 1rem;
+}
+
+.search{
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    margin-top: 1.4rem;
+    position: relative;
+}
+
+.zoom{
+    position: absolute;
+    background-image: url("dd822c.png");
+    background-position: -718px -527px;
+    width:16px;
+    height: 16px;
+    left:0.5rem;
+    top:0.5rem;
+}
+
+.info{
+    height: 10rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 1.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.info .profile-pic{
+    background-image: url("Wallpaper/a_walk_in_nature-wallpaper-1366x768.jpg");
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 1px solid #717171;
+    float: left;
+}
+
+.other .bio{
+    float: right;
+    width: 30rem;
+    /*font-family: 'Proza Libre', sans-serif;*/
+    font-family: 'lato';
+}
