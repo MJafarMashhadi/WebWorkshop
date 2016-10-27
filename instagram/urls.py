@@ -1,3 +1,5 @@
+from user_profile.views import profile
+
 """instagram URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,4 +21,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^users/[a-zA-Z0-9_.]{4,}/', profile)
 ]
