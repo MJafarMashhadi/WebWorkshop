@@ -1,11 +1,13 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
     <link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="home_style.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'user_profile/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'user_profile/home_style.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="header">
@@ -22,10 +24,9 @@
     </div>
     <div class="info">
         <div class="profile-pic">
-
         </div>
         <div class="other">
-            <div class="name"></div>
+            <div class="name">{{ username }}</div>
             <div class="follower"></div>
             <div class="bio">
                 Real Madrid C.F. Official profile of Real Madrid C.F. 11 times European Champions. FIFA Best Club of the 20th Century.
