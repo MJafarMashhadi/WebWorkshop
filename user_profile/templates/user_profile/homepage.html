@@ -5,9 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage | {{ user.username }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet">
-    <link href="{% static 'user_profile/style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'user_profile/home_style.css' %}" rel="stylesheet" type="text/css">
+    {% include 'user_profile/include_css_files.html' %}
     <style>
         .info .profile-pic {
 {#            background-image: url("{{ user.profile_picture.url }}");#}
