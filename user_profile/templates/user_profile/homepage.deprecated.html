@@ -32,8 +32,10 @@
         </div>
         <div class="other">
             <div class="name">{{ user.get_full_name }}</div>
-            <div class="follower">{{ user.followers.count }}</div>
-            <div class="following">{{ user.following.count }}</div>
+            {% if request.user.is_authenticated %}
+                <div class="follower">{{ user.followers.count }}</div>
+                <div class="following">{{ user.following.count }}</div>
+            {% endif %}
             <div class="bio">
                 {{ user.bio }}
             </div>
