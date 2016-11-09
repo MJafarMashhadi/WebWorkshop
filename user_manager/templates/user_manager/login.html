@@ -9,7 +9,7 @@
 {% block css %}
 {{ block.super }}
     <!--<meta http-equiv="refresh" content="2">-->
-    <link rel="stylesheet" type="text/css" href="{% static 'user_profile/style/new_style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'user_manager/style/new_style.css' %}"/>
 {% endblock %}
 
 
@@ -28,7 +28,7 @@
 </div>
 
 <div class="signup login">
-    <p>Don't have an account? <a href="http://instagram.com">SignUp</a></p>
+    <p>Don't have an account? <a href="{% url 'user_manager:register' %}">SignUp</a></p>
 </div>
 {% endblock %}
 

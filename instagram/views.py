@@ -11,4 +11,5 @@ def home(request):
     return HttpResponseRedirect(redirect_url)
     """
 
-    return redirect('profile:profile', username='realdonaldtrump')
+    # return redirect('profile:profile', username='realdonaldtrump')
+    return redirect('user_manager:login')

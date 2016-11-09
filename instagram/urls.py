@@ -23,5 +23,6 @@ from .views import home
 urlpatterns = [
     url(r'^/?$', home, name='home-page'),
     url(r'^admin/', admin.site.urls),
-    url(r'^profile/', include('user_profile.urls', namespace='profile'))
+    url(r'^profile/', include('user_profile.urls', namespace='profile')),
+    url(r'^auth/', include('user_manager.urls', namespace='user_manager')),
 ]

@@ -1,3 +1,15 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def login(request):
+    return render(request, 'user_manager/login.html', {
+
+    })
+
+
+def register(request):
+    pass
+
+
+def forgot_password(request):
+    pass
