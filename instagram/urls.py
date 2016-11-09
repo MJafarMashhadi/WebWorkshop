@@ -1,4 +1,6 @@
 from user_profile.views import profile
+from django.conf import settings
+
 
 """instagram URL Configuration
 
@@ -26,3 +28,10 @@ urlpatterns = [
     url(r'^profile/', include('user_profile.urls', namespace='profile')),
     url(r'^auth/', include('user_manager.urls', namespace='user_manager')),
 ]
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
