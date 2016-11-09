@@ -1,0 +1,14 @@
+{% extends 'user_manager/login_register_base.html' %}
+
+{% block page_title %}Register in instagram{% endblock %}
+
+{% block button_label %}Register{% endblock %}
+
+{% block form_action %}{% url 'user_manager:register' %}{% endblock %}
+
+{% block form_extra %}
+{% endblock %}
+
+{% block other_option %}
+<p>Have an account? <a href="{% url 'user_manager:login' %}">Login</a></p>
+{% endblock %}

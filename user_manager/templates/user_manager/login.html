@@ -1,39 +1,15 @@
-{% extends 'user_profile/user_profile_base.html' %}
-
-{% load static %}
-
+{% extends 'user_manager/login_register_base.html' %}
 
 {% block page_title %}Log in to instagram{% endblock %}
 
+{% block button_label %}Login{% endblock %}
 
-{% block css %}
-{{ block.super }}
-    <!--<meta http-equiv="refresh" content="2">-->
-    <link rel="stylesheet" type="text/css" href="{% static 'user_manager/style/new_style.css' %}"/>
+{% block form_action %}{% url 'user_manager:login' %}{% endblock %}
+
+{% block form_extra %}
+<a href="{% url 'user_manager:forgot' %}" class="forget">forget?</a>
 {% endblock %}
 
-
-{% block page_contents %}
-<!--<div class="absolute">Absolute</div>-->
-<!--<div class="fix">Fixed</div>-->
-
-<div class="login">
-    <div class="form-img"></div>
-    <form autocomplete="off" method="post" action="{% url 'user_manager:login' %}">
-        {% csrf_token %}
-{#        <input class="inputA" placeholder="username" type="text">#}
-{#        <input class="inputA" placeholder="password" type="password">#}
-{#        {{ form.as_p }}#}
-        {{ form }}
-        <a href="http://google.com" class="forget">forget?</a>
-        <input class="inputA" type="submit" value="login">
-    </form>
-</div>
-
-<div class="signup login">
-    <p>Don't have an account? <a href="{% url 'user_manager:register' %}">SignUp</a></p>
-</div>
+{% block other_option %}
+<p>Don't have an account? <a href="{% url 'user_manager:register' %}">SignUp</a></p>
 {% endblock %}
-
-
-{% block js %}{% endblock %}

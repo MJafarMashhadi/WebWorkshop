@@ -1,0 +1,41 @@
+{% extends 'user_profile/user_profile_base.html' %}
+
+{% load static %}
+
+
+{% block page_title %}Log in to instagram{% endblock %}
+
+
+{% block css %}
+    {{ block.super }}
+    <!--<meta http-equiv="refresh" content="2">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'user_manager/style/new_style.css' %}"/>
+{% endblock %}
+
+
+{% block page_contents %}
+    <!--<div class="absolute">Absolute</div>-->
+    <!--<div class="fix">Fixed</div>-->
+
+    <div class="login">
+        <div class="form-img"></div>
+        <form autocomplete="off" method="post"
+              action="{% block form_action %}{% url 'user_manager:login' %}{% endblock %}">
+            {% csrf_token %}
+            {#        <input class="inputA" placeholder="username" type="text">#}
+            {#        <input class="inputA" placeholder="password" type="password">#}
+            {#        {{ form.as_p }}#}
+            {{ form }}
+            {% block form_extra %}{% endblock %}
+            <input class="inputA" type="submit" value="{% block button_label %}login{% endblock %}">
+        </form>
+    </div>
+
+    <div class="signup login">
+        {% block other_option %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block js %}{% endblock %}
