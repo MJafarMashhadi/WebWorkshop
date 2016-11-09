@@ -1,6 +1,8 @@
 from django.http import JsonResponse
 from django.views.generic import View
 
+from user_manager.models import Media, Comment
+
 
 class PostListView(View):
     def get(self, request):
@@ -9,7 +11,23 @@ class PostListView(View):
         :param request:
         :return:
         """
-        pass
+        # .filter(uploader__public=True)
+        all_photos = Media.objects.order_by('-created').all()[:100]
+        photos_list = []
+        for photo in all_photos:
+            photos_list.append({
+                'id': photo.id,
+                'caption': photo.caption,
+                'uploader_name': photo.uploader.get_full_name(),
+                'uploader_id': photo.uploader.id,
+                'media_address': photo.file.url,
+                'likes_count': photo.likes.count(),
+                'comments_count': photo.comments.count(),
+                'created': photo.created,
+                'modified': photo.modified,
+            })
+
+        return JsonResponse(photos_list, safe=False)
 
     def post(self, request):
         """
@@ -19,6 +37,7 @@ class PostListView(View):
         """
         pass
 
+
 class SinglePostView(View):
     def get(self, request, post_id):
         """
@@ -27,7 +46,29 @@ class SinglePostView(View):
         :param post_id:
         :return:
         """
-        pass
+        photo = Media.objects.get(id=post_id)
+        latest_comments = []
+        for comment in Comment.objects.filter(media=photo).order_by('-created')[:3]:
+            latest_comments.append({
+                'commenter_name': comment.commenter.get_full_name(),
+                'commenter_id': comment.commenter.id,
+                'comment_text': comment.comment_text,
+                'comment_id': comment.id,
+            })
+        photo_data = {
+            'id': photo.id,
+            'caption': photo.caption,
+            'uploader_name': photo.uploader.get_full_name(),
+            'uploader_id': photo.uploader.id,
+            'media_address': photo.file.url,
+            'likes_count': photo.likes.count(),
+            'comments_count': photo.comments.count(),
+            'created': photo.created,
+            'modified': photo.modified,
+            'latest_comments': latest_comments
+        }
+
+        return JsonResponse(photo_data)
 
     def post(self, request, post_id):
         """

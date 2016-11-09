@@ -5,17 +5,17 @@ from .views import PostListView, SinglePostView, CommentListView, SingleCommentV
 
 # RESTful
 
-url_patterns = [
-    url('/post/', PostListView.as_view()),
-    url('/post/:post_id', SinglePostView.as_view()),
-    url('/post/:post_id/comment/', CommentListView.as_view()),
-    url('/post/:post_id/comment/:comment_id', SingleCommentView.as_view()),
-    url('/post/:post_id/like/', PostLikeView.as_view()),
-    url('/post/:post_id/report/', PostReportView.as_view()),
+urlpatterns = [
+    url('^post/$', PostListView.as_view()),
+    url('^post/(?P<post_id>[0-9]+)/$', SinglePostView.as_view()),
+    url('^post/(?P<post_id>[0-9]+)/comment/$', CommentListView.as_view()),
+    url('^post/(?P<post_id>[0-9]+)/comment/(?P<comment_id>[0-9]+)/$', SingleCommentView.as_view()),
+    url('^post/(?P<post_id>[0-9]+)/like/$', PostLikeView.as_view()),
+    url('^post/(?P<post_id>[0-9]+)/report/$', PostReportView.as_view()),
     # TODO: create views for users
     # url('/user/', v),
-    # url('/user/:user_id', v),
-    # url('/user/:user_id/follow', v),
-    # url('/user/:user_id/block', v),
-    # url('/user/:user_id/report', v),
+    # url('/user/(?P<user_id>[0-9]+)', v),
+    # url('/user/(?P<user_id>[0-9]+)/follow', v),
+    # url('/user/(?P<user_id>[0-9]+)/block', v),
+    # url('/user/(?P<user_id>[0-9]+)/report', v),
 ]
