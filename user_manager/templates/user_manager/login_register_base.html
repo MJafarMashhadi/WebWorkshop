@@ -19,13 +19,15 @@
 
     <div class="login">
         <div class="form-img"></div>
-        <form autocomplete="off" method="post"
+        <form autocomplete="off" method="post" enctype="multipart/form-data"
               action="{% block form_action %}{% url 'user_manager:login' %}{% endblock %}">
             {% csrf_token %}
             {#        <input class="inputA" placeholder="username" type="text">#}
             {#        <input class="inputA" placeholder="password" type="password">#}
             {#        {{ form.as_p }}#}
-            {{ form }}
+            <table>
+            {{ form.as_table }}
+            </table>
             {% block form_extra %}{% endblock %}
             <input class="inputA" type="submit" value="{% block button_label %}login{% endblock %}">
         </form>

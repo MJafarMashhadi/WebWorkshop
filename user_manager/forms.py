@@ -1,4 +1,8 @@
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django import forms
+from django.core.exceptions import ValidationError
+
+from user_manager.models import Member
 
 
 class LoginForm(AuthenticationForm):
@@ -14,3 +18,26 @@ class LoginForm(AuthenticationForm):
         password_field.widget.attrs = {'class': 'inputA'}
         password_field.label = ''
 
+
+class RegisterForm(UserCreationForm):
+
+    def clean_phone(self):
+        phone_number = self.cleaned_data['phone']
+        if len(phone_number) == 0:
+            raise ValidationError('Phone number is required')
+
+        if phone_number[0] != '0':
+            raise ValidationError('Phone number should begin with a zero')
+
+        return phone_number
+
+    class Meta:
+        model = Member
+        fields = ['username', 'phone', 'profile_picture', 'email']
+        help_texts = {
+            'password': 'لطفا گذرواژهٔ امنی انتخاب کنید',
+            'bio': 'شرح حال کوتاهی از خود بنویسید',
+        }
+        labels = {
+            'phone': 'شماره همراه',
+        }

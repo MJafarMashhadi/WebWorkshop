@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
 from django.views.generic import View
 from .forms import LoginForm
+from .forms import RegisterForm
 
 
 class LoginView(View):
@@ -30,8 +31,23 @@ class LoginView(View):
         })
 
 
-def register(request):
-    pass
+class RegisterView(View):
+    def get(self, request):
+        form = RegisterForm()
+        return render(request, 'user_manager/register.html', {
+            'form': form
+        })
+
+    def post(self, request):
+        form = RegisterForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+
+            return redirect('user_manager:login')
+
+        return render(request, 'user_manager/register.html', {
+            'form': form,
+        })
 
 
 def forgot_password(request):
