@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'user_profile/style/profile_style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    <!--<div class="shape circle"></div>-->
+    <!--<div class="shape sq"></div>-->
+    <!--<div class="shape x"></div>-->
+    <!--<div id="text">Salam</div>-->
+    <!--<div id="my_text"></div>-->
+    <!--<input type="text" placeholder="example">-->
+
+{#    Emmet: #}
+{#    .gallery>(img.big-img+(.thumb-list>img.thumb*4))#}
+
+    <div class="gallery">
+        <img class="big-img" src="">
+        <div class="thumb-list">
+            <img class="thumb" src="{% static 'user_profile/img/above-adventure-aerial-air.jpg' %}">
+            <img class="thumb" src="{% static 'user_profile/img/black-and-white-city-skyline-buildings.jpg' %}">
+            <img class="thumb" src="{% static 'user_profile/img/fall-autumn-red-season.jpg' %}">
+            <img class="thumb" src="{% static 'user_profile/img/skyline-buildings-new-york-skyscrapers.jpg' %}">
+        </div>
+    </div>
+
+    <!--<div class="plus">Plus</div>-->
+
+    <!--<div class="holder">-->
+        <!--<div class="content"></div>-->
+    <!--</div>-->
+
+
+
+
+    <script src="{% static 'user_profile/js/jquery-3.1.1.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'user_profile/js/script.js' %}" type="text/javascript"></script>
+</body>
+</html>
