@@ -7,7 +7,7 @@ def profile(request, username):
     current_user = Member.objects.get(username=username)
     media = Media.objects.filter(uploader=current_user)\
         .order_by('-created')
-    return render(request, 'user_profile/homepage.html', {
+    return render(request, 'user_profile/homepage.deprecated.html', {
         'username': username,
         'user': current_user,
         'media': media
