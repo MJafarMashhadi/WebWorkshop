@@ -7,6 +7,8 @@ from .forms import LoginForm
 class LoginView(View):
     def get(self, request):
         form = LoginForm()
+        if request.user.is_authenticated():
+            return redirect('profile:profile', username=request.user.username)
 
         return render(request, 'user_manager/login.html', {
             'form': form
@@ -14,6 +16,9 @@ class LoginView(View):
 
     def post(self, request):
         form = LoginForm(data=request.POST)
+        if request.user.is_authenticated():
+            return redirect('profile:profile', username=request.user.username)
+
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
